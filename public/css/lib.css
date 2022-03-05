@@ -1,0 +1,78 @@
+*{
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+body{
+
+    /*font-family: "Noto Sans Armenian", sans-serif;*/
+
+}
+
+a:visited{
+
+    text-decoration: none;
+
+}
+
+a:link{
+
+    text-decoration: none;
+
+}
+
+.dFlex{
+
+    display: flex;
+
+}
+
+.flex-wrap{
+
+    flex-wrap: wrap;
+
+}
+
+.justify-between{
+
+    justify-content: space-between;
+
+}
+
+.justify-center{
+
+    justify-content: center;
+
+}
+
+.align-center{
+
+    align-items: center;
+
+}
+
+.dBlock{
+
+    display: block;
+
+}
+
+.w100{
+
+    width: 100%;
+
+}
+
+.hAuto{
+
+    height: auto;
+}
+.m0-auto{
+    margin: 0 auto;
+}
+.gap10{
+    gap: 10px;
+}

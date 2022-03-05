@@ -1,0 +1,14 @@
+ini_set(“memory_limit”,”16M“);
+
+
+
+<IfModule mod_rewrite.c>
+     RewriteEngine On
+
+       RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ public/$1 [L]
+
+
+</IfModule>
+
+php_value memory_limit 256M

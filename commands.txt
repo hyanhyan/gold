@@ -1,0 +1,50 @@
+composer install
+cp .env.example .env
+change .env
+
+You may also seed your database using the migrate:refresh command, which will also rollback and re-run all of your migrations:
+0. Rollback all migrations
+	php artisan migrate:reset
+1. run them all again
+	php artisan migrate:refresh --seed
+
+
+php artisan key:generate
+
+general
+	1. make model migrate
+		php artisan make:model TableName(model name) -m
+	2. make db table
+		php artisan migrate
+    3. /routes/web.php add rout for new controller
+        Route::resource('about', 'AboutController');
+
+
+
+ADD SEEDS
+add class seed and add DatabaseSeeder.php for order
+Once you have written your seeder, you may need to regenerate Composer's autoloader using the dump-autoload command:
+        composer dump-autoload
+php artisan db:seed --class=UserSeeder
+if exist run this:
+        php artisan db:seed --force
+When DATATABLE $timestamps DELETE: add public $timestamps = false; into model
+
+
+
+---------------------------------------------------------------------------------
+change migration order
+1. Create Command class with: php artisan make:command NameClass
+2. Go to app/Console/Commands/ and find the class file NameClass.php
+3. In the NameClass.php you have two attributes $signature (the name of the command) and $description (Information about what your command does).
+4. Set the name and the description of your command.Ex: protected $signature='namecommand'; protected $descripton = 'This method migrate tables in order'
+5. Inside the NameClass.php you have a method called handle(), here you have to declare the code you want to be executed when you write the command.
+6. Register your command. Go to app/Console/Kernel.php and add your class to the list of Command Classes. protected $commands = [Commands\NameClass::class,];
+7. Write the command in the terminal. php artisan MigrateInOrder
+
+-----------------------------------------------------
+add composer this for user permission
+"laravelcollective/html": "^6.1",
+"spatie/laravel-permission": "^3.11"
+
+php artisan make:controller PhotoController --resource --model=Photo

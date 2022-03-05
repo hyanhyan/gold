@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateCitiesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        if (!Schema::hasTable('cities')) {
+            Schema::create('cities', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('name')->unique();
+
+                // Aragatsotn, Ararat, Armavir, Gegharquniq, Lory, Kotayq, Shirak, Syunik, Vayots Dzor, Tavush, Yerevan {1,..,11}
+                $table->tinyInteger('region_id')->default(11);
+
+
+                $table->timestamps();
+            });
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        //Schema::dropIfExists('cities');
+    }
+}
